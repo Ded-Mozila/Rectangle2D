@@ -23,7 +23,17 @@ public:
 class  Rectangle2D
 {
 private:
-	Rectangle2D();
-	~Rectangle2D(){};
+	Point2D point[3];		// Точки треугольника 
 public:
-}
+	Rectangle2D(){};
+	Rectangle2D(const Point2D&,const Point2D&,const Point2D&); // построение треугольникам по трем точкам
+	Rectangle2D(const int,const Point2D&, float,float,float);// Построение треугольника по трем сторонам и известной одной точке
+	Rectangle2D(const int,const Point2D&, const int, Point2D&, float, int, int); //Построение треугольника по двум точкам стороне между ними и углам в этих точках
+	Rectangle2D(const int, const Point2D&, int, float , float); // Построение треугольника по углу и двум сторонам прилижащих к углу
+	~Rectangle2D(){};
+	Point2D get_Point(const int); 			//Полчение нужной точки	
+	void set_Point(const int,float,float);	//Изменение координат нужной точки
+	Rectangle2D(const Rectangle2D&); 				// Конструктор копирования
+	void swap(Rectangle2D&, Rectangle2D&);	// Перегрузка swap;
+	Rectangle2D & operator = (const Rectangle2D&); 	// Оператор присваивания(копирования) 
+};
